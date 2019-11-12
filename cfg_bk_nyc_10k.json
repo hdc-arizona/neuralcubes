@@ -1,0 +1,54 @@
+{
+  "data_schema": {
+    "month": {"type": "integer", "min": 1, "max": 12, "dimension": 12},
+    "dayofweek": {"type": "integer", "min": 0, "max": 6, "dimension": 7},
+    "hour": {"type": "integer", "min": 0, "max": 23, "dimension": 24},
+    "geo": {
+      "type": "spatial",
+      "xExtent": {"min": -74.030811, "max": -73.884933},
+      "yExtent": {"min": 40.696459, "max": 40.801029},
+      "resolution": {"x":20, "y":20}}
+  },
+
+  "net_schema": {
+    "branches": [
+      {"key": "month",
+        "layers": [["FC",8], ["FC",4], ["FC",2], ["FC",4], ["FC",8]],
+        "regLayerID":1,
+        "codeLayerID":2,
+        "activation": "ReLU"},
+      {"key": "dayofweek",
+        "layers": [["FC",8], ["FC",4], ["FC",2], ["FC",4], ["FC",8]],
+        "regLayerID":1,
+        "codeLayerID":2,
+        "activation": "ReLU"},
+      {"key": "hour",
+        "layers": [["FC",12], ["FC",6], ["FC",2], ["FC",6], ["FC",12]],
+        "regLayerID":1,
+        "codeLayerID":2,
+        "activation": "ReLU"},
+      {"key": "geo",
+        "layers": [["FC",400], ["FC",128], ["FC",2], ["FC",128], ["FC",400]],
+        "regLayerID":1,
+        "codeLayerID":2,
+        "activation": "ReLU"}],
+    "regressor": {
+      "layers": [["FC", 220]],
+        "activation": "ReLU"
+    },
+
+    "meta-data": {
+      "training_set": "./training_bk_nyc_10k.txt",
+      "saved_model_name": "",
+
+      "training_epoch": 50,
+      "mini_batch_size": 10,
+
+      "ae_loss_weight": 1,
+      "reg_L1Loss_weight": 20,
+      "reg_MSELoss_weight": 0.001,
+      "regularization_weight": 0
+    }
+  }
+
+}
