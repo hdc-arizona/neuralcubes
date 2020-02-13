@@ -12,3 +12,9 @@ To train a NeuralCubes model, execute: `./train_bk_nyc.sh`
 
 ## Testing
 To test the trained model, execute: `./test_bk_nyc.sh`
+
+# Acknowledgments
+
+This material is based upon work supported or partially supported by the National Science Foundation under Grant Number 1815238, project titled "III: Small: An end-to-end pipeline for interactive visual analysis of big data"
+
+Any opinions, findings, and conclusions or recommendations expressed in this project are those of author(s) and do not necessarily reflect the views of the National Science Foundation.
